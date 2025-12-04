@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { CourseConfig, CourseLevel, AvatarGender } from '../types';
-import { BrainCircuit, BookOpen, User, Sparkles, Shirt, Glasses, Image, Mic, Monitor, Smartphone, Square, ScanFace, UserRound } from 'lucide-react';
+import { BrainCircuit, BookOpen, User, Sparkles, Shirt, Glasses, Image, Mic, Monitor, Smartphone, Square, ScanFace, PersonStanding } from 'lucide-react';
 
 interface ConfigurationStepProps {
   onComplete: (config: CourseConfig) => void;
@@ -41,9 +41,9 @@ export const ConfigurationStep: React.FC<ConfigurationStepProps> = ({ onComplete
   ];
 
   const framingOptions = [
-    { label: 'Rosto (Close-up)', icon: ScanFace, value: 'Close-up' },
-    { label: 'Meio Corpo', icon: User, value: 'Meio Corpo (Padrão)' },
-    { label: 'Circular (Bubble)', icon: UserRound, value: 'Circular (Bubble)' },
+    { label: 'Close-up (Rosto)', icon: ScanFace, value: 'Close-up (Rosto)' },
+    { label: 'Meio Corpo (Padrão)', icon: User, value: 'Meio Corpo (Padrão)' },
+    { label: 'Corpo Inteiro', icon: PersonStanding, value: 'Corpo Inteiro' },
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -70,8 +70,8 @@ export const ConfigurationStep: React.FC<ConfigurationStepProps> = ({ onComplete
       : 'bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-600 hover:border-indigo-300 dark:hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-slate-600';
   };
 
-  // Shared input class for consistent styling
-  const inputClass = "w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/50 text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-950 focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10 dark:focus:ring-indigo-400/20 transition-all duration-300 outline-none shadow-sm hover:border-slate-300 dark:hover:border-slate-600";
+  // Shared input class with enhanced focus styles (projected shadow & subtle ring)
+  const inputClass = "w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 text-slate-900 dark:text-white placeholder-slate-400 transition-all duration-300 outline-none hover:border-indigo-200 dark:hover:border-indigo-700 hover:bg-white dark:hover:bg-slate-900 focus:bg-white dark:focus:bg-slate-950 focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10 dark:focus:ring-indigo-400/20 focus:shadow-[0_0_20px_rgba(99,102,241,0.15)]";
 
   return (
     <div className="max-w-3xl mx-auto w-full">
@@ -357,7 +357,7 @@ export const ConfigurationStep: React.FC<ConfigurationStepProps> = ({ onComplete
         <div className="p-6 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700 flex justify-end">
           <button
             type="submit"
-            className="px-8 py-4 bg-indigo-600 text-white font-bold rounded-xl shadow-lg hover:bg-indigo-700 hover:shadow-indigo-200/50 dark:hover:shadow-none transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+            className="px-8 py-4 bg-indigo-600 text-white font-bold rounded-xl shadow-lg hover:shadow-2xl hover:shadow-indigo-500/30 dark:hover:shadow-indigo-900/50 hover:scale-[1.02] transition-all duration-300 ease-out transform active:scale-[0.98]"
           >
             Gerar Estrutura do Curso
           </button>
